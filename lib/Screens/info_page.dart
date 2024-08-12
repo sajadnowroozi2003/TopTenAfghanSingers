@@ -105,11 +105,14 @@ class InfoPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+
+                        },
                         child: CircleAvatar(
-                          radius: 20,
+                          backgroundColor: Colors.transparent,
+                          radius: 25,
                           backgroundImage:
-                          AssetImage('assets/images/mediaLogo/Facebook.png'),
+                          AssetImage('assets/images/mediaLogo/linkedin.jpg'),
                         ),
                       ),
                     ),
@@ -118,7 +121,8 @@ class InfoPage extends StatelessWidget {
                       child: GestureDetector(
                         onTap: () {},
                         child: CircleAvatar(
-                          radius: 20,
+                          backgroundColor: Colors.transparent,
+                          radius: 25,
                           backgroundImage:
                           AssetImage('assets/images/mediaLogo/google.png'),
                         ),
@@ -129,8 +133,20 @@ class InfoPage extends StatelessWidget {
                       child: GestureDetector(
                         onTap: () {},
                         child: CircleAvatar(
-                          radius: 20,
-                          backgroundImage: AssetImage('assets/images/mediaLogo/twitter.png',
+                          backgroundColor: Colors.transparent,
+                          radius: 25,
+                          backgroundImage: AssetImage('assets/images/mediaLogo/twitter.jpg',
+                          ),
+                        ),
+                      ),
+                    ),Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          radius: 25,
+                          backgroundImage: AssetImage('assets/images/mediaLogo/telegram.png',
                           ),
                         ),
                       ),
