@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/popup_menu_item.dart';
 import '../models/singer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -68,6 +69,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert,size: 20,color: Colors.white,),
+              itemBuilder: (BuildContext context){
+                return MenuItems.choic.map((String choic) {
+                  return PopupMenuItem<String>(
+                      value: choic,
+                      child: ListTile(
+                        title: Text(choic),
+                        trailing: Icon(MenuItems.choiceIcons[choic]),
+                      ));
+                }).toList();
+              }),
+        ],
         backgroundColor: Colors.teal,
         automaticallyImplyLeading: false,
         title: Text(
