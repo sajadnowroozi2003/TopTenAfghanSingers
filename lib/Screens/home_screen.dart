@@ -66,6 +66,47 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        automaticallyImplyLeading: false,
+        title: Text(
+          'ده خواننده برتر افغانی',
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'SplashFont',
+              color: Colors.white),
+        ),
+      ),
+      body: ListView.builder(
+          itemCount: Singers.length,
+          itemBuilder: (context,index){
+        return Card(
+          color: Colors.teal.shade700,
+          child: ListTile(
+            splashColor: Colors.teal,
+            onTap: () {
+              // go to the Singers Details page
+            },
+            title: Text(
+              '${Singers[index].name}',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
+            leading: CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage('${Singers[index].imageURL}'),
+            ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
+            ),
+          ),
+        );
+      }),
+    );
   }
 }
