@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       locale: Locale('fa', ''),
       localeResolutionCallback: (locale, supportedLocales) {
         return locale;
