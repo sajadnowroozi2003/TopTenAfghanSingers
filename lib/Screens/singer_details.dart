@@ -62,7 +62,7 @@ class _SingersDetailesState extends State<SingersDetailes> {
               itemCount: widget.Item.musicsPath.length, // مثلا ۱۰ آهنگ اول
               itemBuilder: (context, index) {
                 String songPath =
-                    'assets/audios/AhmadAzher/${widget.Item.musicsPath[index]}';
+                    'assets/audios/${widget.Item.musicsPath[index]}.mp3';
                 return Card(
                   color: Colors.teal.shade700,
                   child: ListTile(

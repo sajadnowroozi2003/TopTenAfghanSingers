@@ -15,16 +15,17 @@ class _HomeScreenState extends State<HomeScreen> {
   // List of Singers
   List<Singer> Singers = [
     Singer([
-      '66515461.out.mp3',
-      '-ظاهر-گر-زلف-پريشانت_17241.mp3',
-      '_ظاهر_آهنگ_بازآمدی_با_کلیپ_سریال.mp3',
-      'Ahmad Zaher - Dele - www.telegram.me,IranSongs.mp3',
-      'Ahmad Zaher - Asir - www.telegram.me,IranSongs.mp3',
-      'Ahmad Zaher Ashegh Shodi Ey Del.mp3',
-      'Ahmad Zaher - Mardom - www.telegram.me,IranSongs.mp3',
-      'Ahmad Zaher Az Yadat Man Beraftam.mp3',
-      'Ahmad Zahir Donyaye Zendani.mp3',
-      '/LEILI LEILI.mp3',
+      'AhmadZaher_1.mp3',
+      'AhmadZaher_2.mp3',
+      'AhmadZaher_3.mp3',
+      'AhmadZaher_4.mp3',
+      'AhmadZaher_5.mp3',
+      'AhmadZaher_6.mp3',
+      'AhmadZaher_7.mp3',
+      'AhmadZaher_8.mp3',
+      'AhmadZaher_9.mp3',
+      'AhmadZaher_10.mp3',
+
     ],
         'احمد ظاهر',
         'احمد ظاهر (۲۴ جوزا یا خرداد ۱۳۲۵ دیده به جهان گشود– ۲۴ جوزا یا خرداد ۱۳۵۸ دیده از جهان فرو بست.) آواز خوان برجستهٔ افغانستان[۱] در دهه‌های ۵۰ و ۶۰ خورشیدی بود.[۲] از احمد ظاهر با عنوان《 بهترین و محبوب‌ترین خوانندهٔ تاریخ افغانستان 》یاد می‌شود.[۳] وی در عمر کوتاه خود بیشتر از سی و سه آلبوم منتشر کرد.و در مجموع تعداد آهنگ های احمد ظاهر به ۴۳۰ آهنگ می‌رسد. احمدظاهر، به زبان های دیگری هم مانند: انگلیسی، هندی و پشتو آهنگ می‌خواند. او در سالروز تولد ۳۳ سالگی‌اش در سانحه‌ای «مشکوک»[۴] در تونل سالنگ، درگذشت.[۵] همچنین وی را در افغانستان «الماس شرق» نامیده اند و در خارج از مرزهای افغانستان (در اروپا و آمریکا) مشهور به الویس پریسلی افغانستان بود .',
