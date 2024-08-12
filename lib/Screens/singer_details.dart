@@ -56,9 +56,10 @@ class _SingersDetailesState extends State<SingersDetailes> {
               style: TextStyle(fontSize: 20, fontFamily: 'SplashFont'),
             ),
             ListView.builder(
+
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 10, // مثلا ۱۰ آهنگ اول
+              itemCount: widget.Item.musicsPath.length, // مثلا ۱۰ آهنگ اول
               itemBuilder: (context, index) {
                 String songPath =
                     'assets/audios/AhmadAzher/${widget.Item.musicsPath[index]}';
