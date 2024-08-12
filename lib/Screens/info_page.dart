@@ -109,7 +109,7 @@ class InfoPage extends StatelessWidget {
                         child: CircleAvatar(
                           radius: 20,
                           backgroundImage:
-                          AssetImage('assets/images/mediaLogos/Facebook.png'),
+                          AssetImage('assets/images/mediaLogo/Facebook.png'),
                         ),
                       ),
                     ),
@@ -120,7 +120,7 @@ class InfoPage extends StatelessWidget {
                         child: CircleAvatar(
                           radius: 20,
                           backgroundImage:
-                          AssetImage('assets/images/mediaLogos/google.png'),
+                          AssetImage('assets/images/mediaLogo/google.png'),
                         ),
                       ),
                     ),
@@ -130,8 +130,7 @@ class InfoPage extends StatelessWidget {
                         onTap: () {},
                         child: CircleAvatar(
                           radius: 20,
-                          backgroundImage: AssetImage(
-                            'assets/images/mediaLogos/twitter.png',
+                          backgroundImage: AssetImage('assets/images/mediaLogo/twitter.png',
                           ),
                         ),
                       ),
