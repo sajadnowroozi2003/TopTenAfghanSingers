@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top_ten_afghan_singer/Screens/singer_details.dart';
 
 import '../models/popup_menu_item.dart';
 import '../models/singer.dart';
@@ -104,6 +105,9 @@ class _HomeScreenState extends State<HomeScreen> {
             splashColor: Colors.teal,
             onTap: () {
               // go to the Singers Details page
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>
+              SingersDetailes(Item: Singers[index])
+              ));
             },
             title: Text(
               '${Singers[index].name}',
