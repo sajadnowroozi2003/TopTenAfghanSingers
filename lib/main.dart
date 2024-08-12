@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:top_ten_afghan_singer/Screens/home_screen.dart';
+import 'package:top_ten_afghan_singer/Screens/info_page.dart';
 import 'package:top_ten_afghan_singer/Screens/splash_screen.dart';
 
 void main() {
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => SplashScreen(),
         '/home': (context) => HomeScreen(),
+        '/info': (context) => InfoPage(),
       },
       builder: (context, child) {
         return Directionality(textDirection: TextDirection.rtl, child: child!);

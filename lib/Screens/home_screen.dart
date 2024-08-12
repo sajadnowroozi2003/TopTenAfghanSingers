@@ -72,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           PopupMenuButton(
             icon: Icon(Icons.more_vert,size: 20,color: Colors.white,),
+              onSelected: ChoiceAction,
               itemBuilder: (BuildContext context){
                 return MenuItems.choic.map((String choic) {
                   return PopupMenuItem<String>(
@@ -123,5 +124,14 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       }),
     );
+  }
+  void ChoiceAction(String choic) {
+    if (choic == MenuItems.share) {
+      // i want to add share  functionality
+    } else if (choic == MenuItems.about) {
+      Navigator.pushNamed(context, '/info');
+    } else if (choic == MenuItems.exit) {
+      Navigator.pop(context);
+    }
   }
 }
