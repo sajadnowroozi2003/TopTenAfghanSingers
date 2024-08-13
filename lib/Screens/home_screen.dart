@@ -15,16 +15,16 @@ class _HomeScreenState extends State<HomeScreen> {
   // List of Singers
   List<Singer> Singers = [
     Singer([
-      'AhmadZaher_1.mp3',
-      'AhmadZaher_2.mp3',
-      'AhmadZaher_3.mp3',
-      'AhmadZaher_4.mp3',
-      'AhmadZaher_5.mp3',
-      'AhmadZaher_6.mp3',
-      'AhmadZaher_7.mp3',
-      'AhmadZaher_8.mp3',
-      'AhmadZaher_9.mp3',
-      'AhmadZaher_10.mp3',
+      'AhmadZaher_1',
+      'AhmadZaher_2',
+      'AhmadZaher_3',
+      'AhmadZaher_4',
+      'AhmadZaher_5',
+      'AhmadZaher_6',
+      'AhmadZaher_7',
+      'AhmadZaher_8',
+      'AhmadZaher_9',
+      'AhmadZaher_10',
 
     ],
         'احمد ظاهر',

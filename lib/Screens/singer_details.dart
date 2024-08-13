@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/singer.dart';
 import 'package:audioplayers/audioplayers.dart';
+
 class SingersDetailes extends StatefulWidget {
   SingersDetailes({super.key, required this.Item});
 
@@ -12,11 +13,23 @@ class SingersDetailes extends StatefulWidget {
 
 class _SingersDetailesState extends State<SingersDetailes> {
   final AudioPlayer _audioPlayer = AudioPlayer();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
+            ),
+          ),
+        ],
         title: Text(
           widget.Item.name.toString(),
           style: TextStyle(
@@ -51,18 +64,19 @@ class _SingersDetailesState extends State<SingersDetailes> {
             SizedBox(
               height: 20,
             ),
-            Text(
-              'آهنگ ها',
-              style: TextStyle(fontSize: 20, fontFamily: 'SplashFont'),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                'آهنگ ها',
+                style: TextStyle(fontSize: 20, fontFamily: 'SplashFont'),
+              ),
             ),
             ListView.builder(
-
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemCount: widget.Item.musicsPath.length, // مثلا ۱۰ آهنگ اول
               itemBuilder: (context, index) {
-                String songPath =
-                    'assets/audios/${widget.Item.musicsPath[index]}.mp3';
+                String songPath = 'audios/${widget.Item.musicsPath[index]}.mp3';
                 return Card(
                   color: Colors.teal.shade700,
                   child: ListTile(

@@ -16,6 +16,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   flutter_localization: ^0.2.1
   audioplayers: ^6.0.0
+  just_audio: ^0.9.39
 
 
 dev_dependencies:
