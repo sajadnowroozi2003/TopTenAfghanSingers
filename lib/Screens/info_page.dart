@@ -11,8 +11,10 @@ class InfoPage extends StatelessWidget {
 
         // automaticallyImplyLeading: false,
         title: Text(
+
           'در باره ما',
           style: TextStyle(
+
               fontSize: 20,
               fontWeight: FontWeight.bold,
               fontFamily: 'SplashFont',

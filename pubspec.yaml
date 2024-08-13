@@ -17,6 +17,7 @@ dependencies:
   flutter_localization: ^0.2.1
   audioplayers: ^6.0.0
   just_audio: ^0.9.39
+  wave: ^0.2.2
 
 
 dev_dependencies:
