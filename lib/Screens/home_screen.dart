@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:top_ten_afghan_singer/Screens/singer_details.dart';
 import '../models/popup_menu_item.dart';
@@ -13,7 +15,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // List of Singers
   List<Singer> Singers = [
-    Singer([
+    Singer(
+
+        [
       'AhmadZaher_1',
       'AhmadZaher_2',
       'AhmadZaher_3',
@@ -159,7 +163,6 @@ class _HomeScreenState extends State<HomeScreen> {
       'TawabArash_4',
       'TawabArash_5',
       'TawabArash_6',
-
     ],
         'تواب آرش',
         ' آرش یکی از خوانندگان مشهور افغانستان است. او به عنوان یکی از هنرمندان پرآوازه و محبوب در موسیقی افغان شناخته می‌شود. تواب آرش با سبک موسیقی خاص خود و اجرای ترانه‌های عاشقانه و ملی‌گرایانه، توانسته است جایگاه ویژه‌ای در میان طرفداران موسیقی افغان کسب کند. صدای خاص و دلنشین او، همراه با ملودی‌های زیبا و احساساتی که در ترانه‌هایش جاری است، او را به یکی از چهره‌های برجسته موسیقی افغان تبدیل کرده است.تواب آرش در طول دوران حرفه‌ای خود، آهنگ‌های زیادی منتشر کرده و در کنسرت‌های مختلف داخلی و بین‌المللی به اجرای برنامه پرداخته است. وی به دلیل علاقه‌اش به فرهنگ و هنر افغانستان، همواره تلاش کرده تا با استفاده از موسیقی، پیام‌هایی از عشق، دوستی، و همبستگی را به مردم منتقل کند.',
@@ -242,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } else if (choic == MenuItems.about) {
       Navigator.pushNamed(context, '/info');
     } else if (choic == MenuItems.exit) {
-      Navigator.pop(context);
+      exit(0);
     }
   }
 }
