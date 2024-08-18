@@ -123,7 +123,9 @@ class _SingersDetailesState extends State<SingersDetailes>
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text(widget.Item.description.toString()),
+              child: Text(
+                  textAlign: TextAlign.justify,
+                  widget.Item.description.toString(),),
             ),
             SizedBox(
               height: 20,

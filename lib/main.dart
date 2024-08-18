@@ -7,7 +7,6 @@ import 'package:top_ten_afghan_singer/Screens/splash_screen.dart';
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -30,7 +29,8 @@ class MyApp extends StatelessWidget {
       ],
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
       initialRoute: '/',
