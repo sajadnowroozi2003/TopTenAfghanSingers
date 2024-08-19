@@ -17,8 +17,10 @@ class _SplashScreenState extends State<SplashScreen>
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Directionality(
+          textDirection: TextDirection.rtl,
+          child: HomeScreen())));
     });
   }
 
@@ -27,7 +29,6 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Expanded(
                 child: SvgPicture.asset(
@@ -39,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'ده خواننده برتر افغانی',
+                    'ده خواننده برتر افغان',
                     style: TextStyle(
                         fontSize: 30,
                         fontFamily: 'SplashFont',
