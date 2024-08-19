@@ -223,100 +223,107 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CarouselSlider(
-              items: imgList.map((item) {
-                return Container(
-                  height: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Center(
-                    child: ClipRRect(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CarouselSlider(
+                items: imgList.map((item) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Center(
+                      child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        child:
-                            Image.asset(item, fit: BoxFit.fitWidth, width: 1300)),
+                        child: Image.asset(item,
+                            fit: BoxFit.fitWidth, width: 1300),
+                      ),
+                    ),
+                  );
+                }).toList(),
+                carouselController: _controller,
+                options: CarouselOptions(
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  aspectRatio: 2.2,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  },
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: imgList.asMap().entries.map((entry) {
+                return GestureDetector(
+                  onTap: () => _controller.animateToPage(entry.key),
+                  child: Container(
+                    width: 12.0,
+                    height: 12.0,
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 4.0),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: (Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : Colors.teal)
+                          .withOpacity(_current == entry.key ? 0.9 : 0.4),
+                    ),
                   ),
                 );
               }).toList(),
-              carouselController: _controller,
-              options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                aspectRatio: 2.5,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                },
-              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: imgList.asMap().entries.map((entry) {
-              return GestureDetector(
-                onTap: () => _controller.animateToPage(entry.key),
-                child: Container(
-                  width: 12.0,
-                  height: 12.0,
-                  margin: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 4.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: (Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white
-                            : Colors.teal)
-                        .withOpacity(_current == entry.key ? 0.9 : 0.4),
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
-          Expanded(
-            child: ListView.builder(
+            SizedBox(height: 20), // Space between the carousel and the list
+            ListView.builder(
+              shrinkWrap: true,
+              // Use the height of the content
+              physics: NeverScrollableScrollPhysics(),
+              // Disable scrolling in the ListView
               itemCount: Singers.length,
               itemBuilder: (context, index) {
-                return Card(
-                  color: Colors.teal.shade700,
-                  child: ListTile(
-                    splashColor: Colors.teal,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              SingersDetailes(Item: Singers[index]),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Card(
+                    color: Colors.teal.shade700,
+                    child: ListTile(
+                      splashColor: Colors.teal,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SingersDetailes(Item: Singers[index]),
+                          ),
+                        );
+                      },
+                      title: Text(
+                        Singers[index].name.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
-                      );
-                    },
-                    title: Text(
-                      Singers[index].name.toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
                       ),
-                    ),
-                    leading: CircleAvatar(
-                      radius: 30,
-                      backgroundImage:
-                          AssetImage(Singers[index].imageURL.toString()),
-                    ),
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
+                      leading: CircleAvatar(
+                        radius: 30,
+                        backgroundImage:
+                            AssetImage(Singers[index].imageURL.toString()),
+                      ),
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 );
               },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -345,6 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
 // import 'package:url_launcher/url_launcher.dart';
 // import '../models/popup_menu_item.dart';
 // import '../models/singer.dart';
+// import 'package:carousel_slider/carousel_slider.dart';
 //
 // class HomeScreen extends StatefulWidget {
 //   const HomeScreen({super.key});
@@ -354,14 +362,28 @@ class _HomeScreenState extends State<HomeScreen> {
 // }
 //
 // class _HomeScreenState extends State<HomeScreen> {
+//   int _current = 0;
+//   final _controller = CarouselSliderController();
+//
+//   final List<String> imgList = [
+//     'assets/images/singers_images/AhmadZaher.jpg',
+//     'assets/images/singers_images/ArianaSaid.jpg',
+//     'assets/images/singers_images/qaiseOlfate.jpg',
+//     'assets/images/singers_images/amirjanSabory.jpg',
+//     'assets/images/singers_images/dawoodSarkhosh.jpg',
+//     'assets/images/singers_images/Farhad Darya.jpg',
+//     'assets/images/singers_images/AhmadWali.jpg',
+//   ];
+//
 //   Future<void> _launchURL(String url) async {
 //     final Uri uri = Uri.parse(url);
 //     if (!await launchUrl(uri)) {
-//       throw 'Could not launch $url';
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text('Could not launch $url')),
+//       );
 //     }
 //   }
 //
-//   // List of Singers
 //   List<Singer> Singers = [
 //     Singer([
 //       'AhmadZaher_1',
@@ -521,72 +543,135 @@ class _HomeScreenState extends State<HomeScreen> {
 //       appBar: AppBar(
 //         actions: [
 //           PopupMenuButton(
-//               icon: Icon(
-//                 Icons.more_vert,
-//                 size: 20,
-//                 color: Colors.white,
-//               ),
-//               onSelected: ChoiceAction,
-//               itemBuilder: (BuildContext context) {
-//                 return MenuItems.choic.map((String choice) {
-//                   return PopupMenuItem<String>(
-//                       value: choice,
-//                       child: ListTile(
-//                         title: Text(choice),
-//                         trailing: Icon(MenuItems.choiceIcons[choice]),
-//                       ));
-//                 }).toList();
-//               }),
+//             icon: const Icon(Icons.more_vert, size: 20, color: Colors.white),
+//             onSelected: _choiceAction,
+//             itemBuilder: (BuildContext context) {
+//               return MenuItems.choic.map((String choice) {
+//                 return PopupMenuItem<String>(
+//                   value: choice,
+//                   child: ListTile(
+//                     title: Text(choice),
+//                     trailing: Icon(MenuItems.choiceIcons[choice]),
+//                   ),
+//                 );
+//               }).toList();
+//             },
+//           ),
 //         ],
 //         backgroundColor: Colors.teal,
 //         automaticallyImplyLeading: false,
-//         title: Text(
+//         title: const Text(
 //           'ده خواننده برتر افغانی',
 //           style: TextStyle(
-//               fontSize: 20,
-//               fontWeight: FontWeight.bold,
-//               fontFamily: 'SplashFont',
-//               color: Colors.white),
+//             fontSize: 20,
+//             fontWeight: FontWeight.bold,
+//             fontFamily: 'SplashFont',
+//             color: Colors.white,
+//           ),
 //         ),
 //       ),
-//       body: ListView.builder(
-//           itemCount: Singers.length,
-//           itemBuilder: (context, index) {
-//             return Card(
-//               color: Colors.teal.shade700,
-//               child: ListTile(
-//                 splashColor: Colors.teal,
-//                 onTap: () {
-//                   Navigator.push(
-//                       context,
-//                       MaterialPageRoute(
-//                           builder: (context) =>
-//                               SingersDetailes(Item: Singers[index])));
+//       body: Column(
+//         mainAxisAlignment: MainAxisAlignment.spaceAround,
+//         children: [
+//           Padding(
+//             padding: const EdgeInsets.all(8.0),
+//             child: CarouselSlider(
+//               items: imgList.map((item) {
+//                 return Container(
+//                   height: 200,
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(50),
+//                   ),
+//                   child: Center(
+//                     child: ClipRRect(
+//                         borderRadius: BorderRadius.circular(30),
+//                         child: Image.asset(item,
+//                             fit: BoxFit.fitWidth, width: 1300)),
+//                   ),
+//                 );
+//               }).toList(),
+//               carouselController: _controller,
+//               options: CarouselOptions(
+//                 autoPlay: true,
+//                 enlargeCenterPage: true,
+//                 aspectRatio: 2.2,
+//                 onPageChanged: (index, reason) {
+//                   setState(() {
+//                     _current = index;
+//                   });
 //                 },
-//                 title: Text(
-//                   '${Singers[index].name}',
-//                   style: TextStyle(
-//                       color: Colors.white,
-//                       fontWeight: FontWeight.bold,
-//                       fontSize: 20),
-//                 ),
-//                 leading: CircleAvatar(
-//                   radius: 30,
-//                   backgroundImage: AssetImage('${Singers[index].imageURL}'),
-//                 ),
-//                 trailing: Icon(
-//                   Icons.arrow_forward_ios,
-//                   color: Colors.white,
-//                 ),
 //               ),
-//             );
-//           }),
+//             ),
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: imgList.asMap().entries.map((entry) {
+//               return GestureDetector(
+//                 onTap: () => _controller.animateToPage(entry.key),
+//                 child: Container(
+//                   width: 12.0,
+//                   height: 12.0,
+//                   margin: const EdgeInsets.symmetric(
+//                       vertical: 8.0, horizontal: 4.0),
+//                   decoration: BoxDecoration(
+//                     shape: BoxShape.circle,
+//                     color: (Theme.of(context).brightness == Brightness.dark
+//                             ? Colors.white
+//                             : Colors.teal)
+//                         .withOpacity(_current == entry.key ? 0.9 : 0.4),
+//                   ),
+//                 ),
+//               );
+//             }).toList(),
+//           ),
+//           Expanded(
+//             child: ListView.builder(
+//               itemCount: Singers.length,
+//               itemBuilder: (context, index) {
+//                 return Card(
+//                   color: Colors.teal.shade700,
+//                   child: ListTile(
+//                     splashColor: Colors.teal,
+//                     onTap: () {
+//                       Navigator.push(
+//                         context,
+//                         MaterialPageRoute(
+//                           builder: (context) =>
+//                               SingersDetailes(Item: Singers[index]),
+//                         ),
+//                       );
+//                     },
+//                     title: Text(
+//                       Singers[index].name.toString(),
+//                       style: const TextStyle(
+//                         color: Colors.white,
+//                         fontWeight: FontWeight.bold,
+//                         fontSize: 20,
+//                       ),
+//                     ),
+//                     leading: CircleAvatar(
+//                       radius: 30,
+//                       backgroundImage:
+//                           AssetImage(Singers[index].imageURL.toString()),
+//                     ),
+//                     trailing: const Icon(
+//                       Icons.arrow_forward_ios,
+//                       color: Colors.white,
+//                     ),
+//                   ),
+//                 );
+//               },
+//             ),
+//           ),
+//         ],
+//       ),
 //     );
 //   }
 //
-//   void ChoiceAction(String choice) {
+//   void _choiceAction(String choice) {
 //     if (choice == MenuItems.share) {
-//       final url = 'https://play.google.com/store/apps/details?id=com.example.top_ten_afghan_singer=en&pli=1';
+//       const url =
+//           'https://play.google.com/store/apps/details?id=com.example.top_ten_afghan_singer=en&pli=1';
 //       _launchURL(url);
 //     } else if (choice == MenuItems.about) {
 //       Navigator.pushNamed(context, '/info');

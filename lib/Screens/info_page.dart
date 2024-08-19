@@ -55,7 +55,7 @@ class InfoPage extends StatelessWidget {
               ),
             ),
             const Text(
-              'برنامه نویس فلاتر',
+              'توسعه دهنده فلاتر',
               style: TextStyle(
                 letterSpacing: 3,
                 fontSize: 15,
