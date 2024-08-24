@@ -20,6 +20,7 @@ dependencies:
   wave: ^0.2.2
   url_launcher: ^6.3.0
   carousel_slider: ^5.0.0
+  share_plus: ^10.0.0
 
 
 dev_dependencies:
